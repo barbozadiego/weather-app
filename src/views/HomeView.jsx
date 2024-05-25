@@ -8,6 +8,7 @@ const HomeView = () => {
   const [query, setQuery] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  
 
   useEffect(() => {
     const fetchWeather = async () => {
