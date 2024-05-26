@@ -5,7 +5,7 @@ const CardWeather = ({ current, location }) => {
   const { temp_c, temp_f, condition } = current;
 
   return (
-    <div className="bg-gray-700 p-6 text-gray-300 w-[20em] rounded-md z-10 relative">
+    <div className="bg-gray-700 p-6 text-gray-300 rounded-md">
       <div>
         {/* <h2 className="font-bold">Location</h2> */}
 
@@ -28,6 +28,8 @@ const CardWeather = ({ current, location }) => {
           {/* <p className="text-4xl">{`${temp_f} °F`}</p> */}
         </div>
       </div>
+
+      <div className="w-[max-content] px-4 py-2 rounded-md border border-gray-400">Degress °F/°C</div>
 
       {/* {console.log(location)} */}
     </div>

@@ -1,35 +1,8 @@
-import { useState } from "react";
-import { useEffect } from "react";
 import CardWeather from "../components/CardWeather";
+import useFetchWeather from "../components/hooks/useFetchWeather";
 
 const HomeView = () => {
-  const APIKEY = import.meta.env.VITE_APP_APIKEY;
-  const [weather, setWeather] = useState();
-  const [query, setQuery] = useState("");
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
-  
-
-  useEffect(() => {
-    const fetchWeather = async () => {
-      setLoading(true);
-      setError(null);
-
-      const res = await fetch(
-        `http://api.weatherapi.com/v1/current.json?key=${APIKEY}&q=${query}`
-      );
-
-      if (res.ok) {
-        const data = await res.json();
-        setWeather(data);
-        setLoading(false);
-      }
-    };
-
-    if (query) {
-      fetchWeather();
-    }
-  }, [APIKEY, query]);
+  const [query, setQuery, weather, loading, error] = useFetchWeather();
 
   // useEffect(() => {
   //   fetch(`http://api.weatherapi.com/v1/current.json?key=${APIKEY}&q=${query}`)
@@ -39,38 +12,37 @@ const HomeView = () => {
 
   const handleOnChange = (e) => {
     setQuery(e.target.value);
-    // const value = e.target.value.replace(/\s/g, ""); // Remover espacios
-    // setQuery(value);
   };
 
-  // const handleOnKeyDown = (e) => {
-  //   if (e.key === " ") {
-  //     e.preventDefault();
-  //   }
-  // };
-
   return (
-    <div
-      className="w-full h-[100vh] text-white flex justify-center items-center bg-no-repeat bg-cover"
-      style={{ backgroundImage: 'url("/images/bg-clouds-4.jpg")' }}
-    >
-      <div>
-        <input
-          type="search"
-          onChange={handleOnChange}
-          // onKeyDown={handleOnKeyDown}
-          id="city"
-          defaultValue={query}
-          // value={query}
-          placeholder="Escribe el nombre de una ciudad"
-          className="w-full bg-gray-700 mb-8 rounded-md p-3 outline-none"
-        />
+    <div className="overflow-hidden relative h-[100vh]">
+      <div className="clouds"></div>
+      <div
+        className="w-full h-[100vh] text-white flex justify-center items-center relative"
+        // style={{ backgroundImage: 'url("/images/bg-clouds-4.jpg")' }}
+      >
+        <div className="bg-[rgba(0,0,0,.4)] p-10 rounded-md shadow-2xl shadow-white/20 hover:shadow-white/50">
+          <h1 className="text-3xl font-bold text-center mb-3">Weather App</h1>
+          <h2 className="mb-4">Introduzca el nombre de la ciudad que desea consultar</h2>
 
-        {loading && <p>Loading...</p>}
-        {error && <p>{error}</p>}
-        {weather && (
-          <CardWeather current={weather.current} location={weather.location} />
-        )}
+          <input
+            id="city"
+            type="search"
+            onChange={handleOnChange}
+            defaultValue={query}
+            placeholder="Ingresa la ciudad"
+            className="w-full text-white border border-gray-200 bg-transparent mb-8 rounded-md p-3 outline-none placeholder:text-gray-300"
+          />
+
+          {loading && <p>Loading...</p>}
+          {error && <p>{error}</p>}
+          {weather && (
+            <CardWeather
+              current={weather.current}
+              location={weather.location}
+            />
+          )}
+        </div>
       </div>
     </div>
   );

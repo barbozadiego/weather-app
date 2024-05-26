@@ -2,3 +2,54 @@
 @tailwind components;
 @tailwind utilities;
 
+.clouds {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 100%;
+    background: url("/images/bg-clouds-4.jpg") no-repeat bottom;
+    background-size: cover;
+    opacity: 0.8;
+    animation: moveClouds 110s linear infinite;
+  }
+
+  .clouds::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 100%;
+    background: url('/images/bg-clouds-4.jpg') no-repeat bottom;
+    background-size: cover;
+    opacity: 0.5;
+    animation: moveClouds 55s linear infinite; /* Diferente velocidad para suavizar la transición */
+  }
+
+  @keyframes moveClouds {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+
+/* .clouds {
+    @apply w-full h-[100vh] text-white flex justify-center items-center bg-no-repeat bg-cover;
+  @apply w-full h-full flex justify-center items-center;
+  background: url("/images/bg-clouds-6.jpg") repeat-x;
+  background-size: 100% 100%;
+  animation: moveClouds 80s linear infinite;
+}
+
+@keyframes moveClouds {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: -2000px 0;
+  }
+} */
