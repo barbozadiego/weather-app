@@ -14,6 +14,7 @@ const HomeView = () => {
     setQuery(e.target.value);
   };
 
+  
   return (
     <div className="overflow-hidden relative h-[100vh]">
       <div className="clouds"></div>
@@ -21,6 +22,8 @@ const HomeView = () => {
         className="w-full h-[100vh] text-white flex justify-center items-center relative"
         // style={{ backgroundImage: 'url("/images/bg-clouds-4.jpg")' }}
       >
+        {/* <div className="bg-[rgba(255,255,255,.3)] p-10 rounded-md shadow-2xl shadow-white/20 hover:shadow-white/50"> */}
+        {/* <div className="bg-sky-500 p-10 rounded-md shadow-2xl shadow-white/20 hover:shadow-white/50"> */}
         <div className="bg-[rgba(0,0,0,.4)] p-10 rounded-md shadow-2xl shadow-white/20 hover:shadow-white/50">
           <h1 className="text-3xl font-bold text-center mb-3">Weather App</h1>
           <h2 className="mb-4">Introduzca el nombre de la ciudad que desea consultar</h2>
