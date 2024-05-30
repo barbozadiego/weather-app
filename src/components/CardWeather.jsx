@@ -7,6 +7,7 @@ const CardWeather = ({ current, location }) => {
 
   const [Fahrenheit, setFahrenheit] = useState(false);
 
+  
   const changeDegress = () => {
     if (temp_c) {
       if (Fahrenheit) setFahrenheit(false);
