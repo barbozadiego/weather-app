@@ -23,21 +23,29 @@ const HomeView = () => {
     setQuery(currentCity);
   };
 
+  
   return (
-    <div className="overflow-hidden relative h-[100vh]">
-      <div className="clouds"></div>
+    <div className="h-[100vh]">
       <div
-        className="w-full h-[100vh] text-white flex justify-center items-center relative"
-        // style={{ backgroundImage: 'url("/images/bg-clouds-4.jpg")' }}
-      >
+        className="clouds w-full h-full absolute inset-0 bg-no-repeat bg-cover"
+        style={{ backgroundImage: 'url("/images/bg-clouds-1.jpg")' }}
+      ></div>
+      <div className="w-full h-[100vh] text-white flex justify-center items-center relative">
         {weather ? (
           <CardWeather current={weather.current} location={weather.location} />
         ) : (
-          <div className="bg-gray-800 p-10 rounded-md">
-            <h1 className="text-3xl font-bold text-center mb-3">Weather App</h1>
-            <h2 className="mb-4 text-center">Introduzca una ciudad</h2>
+          <div className="bg-gray-800 p-10 rounded-md max-w-[30em]">
+            <h1 className="text-3xl font-bold text-center mb-5">WeatherApp</h1>
+            <h2 className="text-center mb-6">
+              Pequeña aplicación web que te proporciona el clima actual de
+              cualquier ciudad al instante. Solo ingresa el nombre de la ciudad
+              y obtén detalles meteorológicos rápidamente.
+            </h2>
 
-            <form onSubmit={handleOnSubmit} className="grid grid-cols-[7fr,3fr] gap-4 rounded-md">
+            <form
+              onSubmit={handleOnSubmit}
+              className="grid grid-cols-[7fr,3fr] gap-4 rounded-md"
+            >
               <input
                 id="city"
                 type="text"
@@ -45,11 +53,12 @@ const HomeView = () => {
                 // defaultValue={query}
                 placeholder="Ingresa la ciudad"
                 className="border border-gray-200 bg-transparent p-3 rounded-sm outline-none placeholder:text-gray-300"
+                required
               />
               <input
                 type="submit"
                 value="Consultar"
-                className="border border-gray-300 px-6 rounded-sm cursor-pointer mx-auto"
+                className="border border-blue-600 px-6 rounded-sm cursor-pointer bg-blue-600 font-semibold"
               />
             </form>
 
