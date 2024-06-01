@@ -23,6 +23,7 @@ const HomeView = () => {
     setQuery(currentCity);
   };
 
+
   
   return (
     <div className="h-[100vh]">
