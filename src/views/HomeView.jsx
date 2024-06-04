@@ -24,7 +24,6 @@ const HomeView = () => {
   };
 
 
-  
   return (
     <div className="h-[100vh]">
       <div
