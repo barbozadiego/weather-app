@@ -14,6 +14,7 @@ const CardWeather = ({ current, location }) => {
       else setFahrenheit(true);
     }
   };
+  
 
   return (
     <div className="bg-gray-700 p-6 text-gray-300 rounded-md">
