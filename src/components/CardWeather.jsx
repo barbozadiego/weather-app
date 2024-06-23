@@ -13,6 +13,7 @@ const CardWeather = ({ current, location }) => {
       else setFahrenheit(true);
     }
   };
+
   
 
   return (
