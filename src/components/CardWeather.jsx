@@ -14,7 +14,7 @@ const CardWeather = ({ current, location }) => {
     }
   };
 
-
+  
   return (
     <div className="bg-gray-700 p-6 text-gray-300 rounded-md">
       <div>
