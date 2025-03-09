@@ -13,7 +13,7 @@ const useFetchWeather = () => {
       setError(null);
 
       const res = await fetch(
-        `http://api.weatherapi.com/v1/current.json?key=${APIKEY}&q=${query}`
+        `https://api.weatherapi.com/v1/current.json?key=${APIKEY}&q=${query}`
       );
 
       if (res.ok) {
