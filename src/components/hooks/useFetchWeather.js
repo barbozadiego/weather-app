@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
 const useFetchWeather = () => {
-  const APIKEY = import.meta.env.VITE_APP_WEATHER_APIKEY;
+  const APIKEY = import.meta.env.VITE_APP_WEATHER_API_KEY;
   const [query, setQuery] = useState("");
   const [weather, setWeather] = useState();
   const [loading, setLoading] = useState(false);
